@@ -2,6 +2,7 @@ return {
   "hrsh7th/nvim-cmp",
   opts = function(_, opts)
     local cmp = require("cmp")
+    -- opts.preselect = cmp.PreselectMode.None
     local has_words_before = function()
       unpack = unpack or table.unpack
       local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -19,11 +20,11 @@ return {
         s = cmp.mapping.confirm({ select = true }),
         c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
       }),
-
       ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           -- You could replace select_next_item() with confirm({ select = true }) to get VS Code autocompletion behavior
-          cmp.select_next_item()
+          -- cmp.confirm({ select = true })
+          cmp.confirm({ select = true })
         elseif vim.snippet.active({ direction = 1 }) then
           vim.schedule(function()
             vim.snippet.jump(1)
@@ -34,9 +35,10 @@ return {
           fallback()
         end
       end, { "i", "s" }),
+
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
-          cmp.select_prev_item()
+          cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
         elseif vim.snippet.active({ direction = -1 }) then
           vim.schedule(function()
             vim.snippet.jump(-1)
