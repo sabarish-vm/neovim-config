@@ -22,3 +22,9 @@ vim.keymap.set("n", "vil", "0vg_", opts)
 -- select/copy entire line starting from current position and until the end of line excluding whitespace
 vim.keymap.set("n", "vul", "vg_", opts)
 vim.keymap.set("n", "yul", "yg_", opts)
+
+if vim.g.neovide then
+  vim.keymap.set({ "n", "v" }, "<D-+>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
+  vim.keymap.set({ "n", "v" }, "<D-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
+  vim.keymap.set({ "n", "v" }, "<C-0>", ":lua vim.g.neovide_scale_factor = 1<CR>")
+end
