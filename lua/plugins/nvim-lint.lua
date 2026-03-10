@@ -7,7 +7,7 @@ return {
   config = function()
     local lint = require("lint")
     lint.linters_by_ft = {
-      cpp = { "cpplint", "cppcheck" },
+      cpp = { "cppcheck" },
     }
 
     -- lint.linters.markdownlint.args = {

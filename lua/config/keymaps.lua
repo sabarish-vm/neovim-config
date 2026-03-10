@@ -16,7 +16,10 @@ vim.keymap.set("i", "kj", "<ESC>", opts)
 vim.keymap.set("v", "p", '"_dp', opts)
 -- Do not cut to register iow emulate delete -- works only in visual mode
 vim.keymap.set("v", "d", '"_d', opts)
+-- Do not cut to register iow emulate delete -- works only in visual mode
+vim.keymap.set("v", "d", '"_d', opts)
 -- Select entire line excluding whitespace
+vim.keymap.set("n", "ciw", '"_ciw', opts)
 -- To select the entire including the whitespace at the end use 'V'
 vim.keymap.set("n", "vil", "0vg_", opts)
 -- select/copy entire line starting from current position and until the end of line excluding whitespace
