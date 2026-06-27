@@ -5,16 +5,36 @@ return {
     opts = {
       servers = {
         pyright = {},
-        rustowl = {},
-        markdown_oxide = {},
-
+        tinymist = {},
+        harper_ls = {
+          filetypes = { "typst" },
+          settings = {
+            ["harper-ls"] = {
+              linters = {
+                SpellCheck = true,
+                SpelledNumbers = false,
+                AnA = true,
+                SentenceCapitalization = true,
+                UnclosedQuotes = true,
+                WrongApostrophe = false,
+                LongSentences = false,
+                RepeatedWords = true,
+                Spaces = true,
+                CorrectNumberSuffix = true,
+              },
+            },
+          },
+        },
         marksman = {
-          root_dir = function(fname)
-            local path = vim.api.nvim_buf_get_name(vim.fn.bufnr(fname, false))
-            if vim.fs.root(path, ".no-marksman") then
+          root_dir = function(bufnr, on_dir)
+            local path = vim.api.nvim_buf_get_name(bufnr)
+
+            if vim.fs.root(path, { ".no-marksman" }) then
               return nil
-            else
-              return vim.fs.dirname(path)
+            end
+            local root = vim.fs.root(path, { ".marksman.toml" })
+            if root then
+              on_dir(root)
             end
           end,
         },
