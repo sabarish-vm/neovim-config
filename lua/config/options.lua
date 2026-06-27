@@ -6,3 +6,4 @@ vim.opt.expandtab = true -- expand tab in terms of normal spaces
 -- vim.opt.tabstop = 4 -- this has been commented since it is overridden by ftplugin-defaults. Issue with LazyVim
 vim.opt.shiftwidth = 4 -- alternatively this seems to fix the global tab spacing. https://github.com/LazyVim/LazyVim/discussions/454
 vim.opt.wrap = true
+vim.opt.exrc = true
