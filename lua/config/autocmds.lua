@@ -8,9 +8,9 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
   command = "setlocal filetype=g3par",
 })
 -- Disable autoformat for lua files
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "c", "cpp", "h", "hpp" },
-  callback = function()
-    vim.b.autoformat = false
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+--   pattern = { "c", "cpp", "h", "hpp" },
+--   callback = function()
+--     vim.b.autoformat = false
+--   end,
+-- })
