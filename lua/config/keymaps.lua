@@ -3,7 +3,7 @@
 -- Add any additional keymaps here
 local opts = { noremap = true, silent = true }
 
-vim.keymap.set("n", "<leader>/g", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+-- vim.keymap.set("n", "<leader>/g", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 --
 -- Move text up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
