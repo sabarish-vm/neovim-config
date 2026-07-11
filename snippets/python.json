@@ -1,0 +1,7 @@
+{
+  "DocStrings": {
+    "prefix": "doc",
+    "body": "\"\"\"$0\"\"\"",
+    "description": "Inserts triple quotes and places cursor inside"
+  }
+}
