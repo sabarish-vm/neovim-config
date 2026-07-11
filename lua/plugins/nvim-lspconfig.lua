@@ -4,7 +4,29 @@ return {
     ---@class PluginLspOpts
     opts = {
       servers = {
-        pyright = {},
+        basedpyright = {
+          enabled = true,
+          filetypes = { "python" },
+          analysis = {
+            inlayHints = {
+              callArgumentNames = true,
+              variableTypes = true,
+              functionReturnTypes = true,
+              genericTypes = true,
+            },
+          },
+        },
+        pyright = {
+          enabled = false,
+          analysis = {
+            inlayHints = {
+              callArgumentNames = true,
+              variableTypes = true,
+              functionReturnTypes = true,
+              genericTypes = true,
+            },
+          },
+        },
         tinymist = {},
         harper_ls = {
           filetypes = { "typst" },
